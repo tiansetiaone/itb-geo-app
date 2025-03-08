@@ -1,0 +1,56 @@
+####
+curl -X GET http://localhost:5000/api/buildings
+
+####
+curl -X GET http://localhost:5000/api/buildings/67cb9ef7220256c784e8ef78
+
+
+
+####
+curl -X POST http://localhost:5000/api/buildings \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2IwZmIyM2I1MTgxOTBhNzRkNGZiYyIsImlhdCI6MTc0MTM5NzcwNCwiZXhwIjoxNzQxNDAxMzA0fQ.7FgNkUPOwIZYMJtNDxFXdCGfT09DknM0ZefGBgenHYo" \
+     -d '{
+           "id": 1,
+           "name": "Gedung Baru",
+           "status": "aktif",
+           "latitude": -6.89233,
+           "longitude": 107.6107
+         }'
+
+
+####
+curl -X POST http://localhost:5000/api/auth/register \
+     -H "Content-Type: application/json" \
+     -d '{
+           "username": "admin1",
+           "password": "123"
+         }'
+
+
+####
+curl -X POST http://localhost:5000/api/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{
+           "username": "admin",
+           "password": "admin123"
+         }'
+
+
+####
+curl -X GET "http://localhost:5000/api/weather?lat=-6.8915&lon=107.6107"
+
+
+####
+curl -X PUT http://localhost:5000/api/buildings/67cb8b44afe96c462089e10a \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2IwZmIyM2I1MTgxOTBhNzRkNGZiYyIsImlhdCI6MTc0MTM5MjY1MSwiZXhwIjoxNzQxMzk2MjUxfQ.XcQdg0UclYk6xOAVNDnRmHvPM74J7t4cJQA5Dp0iKI4" \
+     -d '{"status": "aktif"}'
+
+
+####
+curl -X DELETE http://localhost:5000/api/buildings/67cb293aba09545c8c520d91 \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Y2IwZmIyM2I1MTgxOTBhNzRkNGZiYyIsImlhdCI6MTc0MTM2NzUxMiwiZXhwIjoxNzQxMzcxMTEyfQ.uarkjlHLnl3a1seKBsyPVhfHd_OPJLteI4nIvCjdODs"
+
+
+####
+curl -X GET http://localhost:5000/api/buildings/weather/-6.89148/107.61072
